@@ -1,0 +1,15 @@
+/* Herda todos os estilos do Login.css e adiciona específicos */
+.success-message {
+  text-align: center;
+  padding: 2rem;
+}
+
+.success-message h2 {
+  color: #4CAF50;
+  margin-bottom: 1rem;
+}
+
+.success-message p {
+  margin-bottom: 2rem;
+  color: #666;
+}

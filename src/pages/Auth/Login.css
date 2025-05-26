@@ -103,3 +103,27 @@
 .register-link:hover {
   text-decoration: underline;
 }
+
+.password-group {
+  position: relative;
+}
+
+.password-input-container {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.7rem;
+  padding: 0 5px;
+}
+
+.toggle-password:hover {
+  opacity: 0.8;
+}

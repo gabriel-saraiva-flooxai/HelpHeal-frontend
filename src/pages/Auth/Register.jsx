@@ -1,16 +1,26 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import api from '../../api'
-import './Register.css' // Usaremos o mesmo estilo do Login com pequenas adaptações
+import './Register.css'
 
 export default function Register() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
   const [success, setSuccess] = useState(false)
+
+  const togglePasswordVisibility = (field) => {
+  if (field === 'password') {
+    setShowPassword(!showPassword)
+  } else {
+    setShowConfirmPassword(!showConfirmPassword)
+  }
+}
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -76,23 +86,32 @@ export default function Register() {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-group password-group">
           <label htmlFor="password">Senha</label>
-          <input
-            id="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            minLength="6"
-          />
+          <div className="password-input-container">
+            <input
+              id="password"
+              type={showPassword ? 'text' : 'password'}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              minLength="6"
+            />
+            <button
+              type="button"
+              className="toggle-password"
+              onClick={() => togglePasswordVisibility('password')}
+            >
+              {showPassword ? '🙉' : '🙈'}
+            </button>
+          </div>
         </div>
 
         <div className="form-group">
           <label htmlFor="confirmPassword">Confirme sua Senha</label>
           <input
             id="confirmPassword"
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required

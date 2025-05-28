@@ -1,0 +1,6 @@
+.vacancy-card {
+  transition: transform 0.2s ease;
+}
+.vacancy-card:hover {
+  transform: translateY(-2px);
+}

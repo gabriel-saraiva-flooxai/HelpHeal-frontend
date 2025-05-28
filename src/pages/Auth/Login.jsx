@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import api from '../../api'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../hooks/useAuth'
 import './Login.css'
 
 export default function Login() {
@@ -9,6 +9,8 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
+  const { login } = useAuth()
+  const navigate = useNavigate()
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword)
@@ -20,9 +22,8 @@ export default function Login() {
     setError(null)
     
     try {
-      const { data } = await api.post('/auth/login', { email, password })
-      localStorage.setItem('token', data.token)
-      window.location.href = '/vacancies'
+      await login(email, password)
+      navigate('/hospital/vacancies') // Redireciona para dashboard após login
     } catch (err) {
       setError(err.response?.data?.message || 'Credenciais inválidas')
     } finally {

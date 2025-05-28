@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import api from '../../api'
 import './Login.css'
 
@@ -14,6 +14,8 @@ export default function Login() {
     setShowPassword(!showPassword)
   }
 
+  const Navigate = useNavigate()
+  
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsLoading(true)
@@ -22,7 +24,7 @@ export default function Login() {
     try {
       const { data } = await api.post('/auth/login', { email, password })
       localStorage.setItem('token', data.token)
-      window.location.href = '/vacancies'
+      Navigate('/vacancies')
     } catch (err) {
       setError(err.response?.data?.message || 'Credenciais inválidas')
     } finally {

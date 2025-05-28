@@ -37,7 +37,7 @@ export default function Register() {
       await api.post('/auth/register', { name, email, password })
       setSuccess(true)
     } catch (err) {
-      setError(err.response?.data?.message || 'Erro ao cadastrar')
+      setError(err.response?.data || 'Erro ao cadastrar')
     } finally {
       setIsLoading(false)
     }

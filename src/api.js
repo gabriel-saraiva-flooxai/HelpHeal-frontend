@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: '/api'
+  baseURL: 'https://helpheal-backend.onrender.com'
 })
 
 api.interceptors.request.use(config => {

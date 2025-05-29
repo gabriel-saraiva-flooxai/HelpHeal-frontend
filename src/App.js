@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Auth/Login.jsx";
 import VacancyList from "./pages/Vacancies/List.jsx";
 import Register from "./pages/Auth/Register.jsx";
@@ -14,6 +14,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/vacancies" element={<VacancyList />} />
         <Route path="/vacancies/new" element={<VacancyCreate />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
   );

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import api from '../../api'
 import { useNavigate } from 'react-router-dom'
 import { getUserRole } from '../../auth'
+import Navbar from '../../components/Navbar'
 
 export default function VacancyList() {
   const [vacancies, setVacancies] = useState([])
@@ -17,17 +18,18 @@ export default function VacancyList() {
 
   return (
     <div>
-      <h1 style={{ textAlign: 'center', margin: '1rem 0' }}>Vagas Disponíveis</h1>
-      
-      {['admin', 'internal_user'].includes(role) && (
-        <div style={{ textAlign: 'center' }}>
-          <button 
-            className="new-vacancy-btn" 
+      <Navbar />
+      <div className="vacancy-header-centered">
+        <h1>Vagas Disponíveis</h1>
+        {['admin', 'internal_user'].includes(role) && (
+          <button
+            className="new-vacancy-btn"
             onClick={() => navigate('/vacancies/new')}>
             + Nova Vaga
           </button>
-        </div>
-      )}
+        )}
+      </div>
+
 
       <div className="vacancy-list">
         {vacancies.map(v => (

@@ -1,9 +1,10 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import api from '../../api'
 import './Register.css'
 
 export default function Register() {
+  const location = useLocation()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -14,17 +15,23 @@ export default function Register() {
   const [error, setError] = useState(null)
   const [success, setSuccess] = useState(false)
 
+  useEffect(() => {
+    if (location.state?.email) {
+      setEmail(location.state.email)
+    }
+  }, [location.state])
+
   const togglePasswordVisibility = (field) => {
-  if (field === 'password') {
-    setShowPassword(!showPassword)
-  } else {
-    setShowConfirmPassword(!showConfirmPassword)
+    if (field === 'password') {
+      setShowPassword(!showPassword)
+    } else {
+      setShowConfirmPassword(!showConfirmPassword)
+    }
   }
-}
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
+
     if (password !== confirmPassword) {
       setError('As senhas não coincidem')
       return
@@ -61,7 +68,7 @@ export default function Register() {
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
         <h2>Criar Conta</h2>
-        
+
         {error && <div className="error-message">{error}</div>}
 
         <div className="form-group">

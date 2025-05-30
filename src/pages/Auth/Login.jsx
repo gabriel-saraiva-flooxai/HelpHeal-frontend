@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import api from '../../api'
 import './Login.css'
+import Footer from '../../components/Footer'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -22,7 +23,11 @@ export default function Login() {
     setError(null)
     
     try {
+      console.log(email, 'Email');
+      console.log(password, 'SENHA');
+      
       const { data } = await api.post('/auth/login', { email, password })
+      console.log(data, 'data');
       localStorage.setItem('token', data.token)
       Navigate('/vacancies')
     } catch (err) {
@@ -33,6 +38,7 @@ export default function Login() {
   }
 
   return (
+    <>
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
         <h2>Login</h2>
@@ -47,7 +53,7 @@ export default function Login() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-          />
+            />
         </div>
 
         <div className="form-group password-group">
@@ -60,12 +66,12 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
               required
               minLength="6"
-            />
+              />
             <button
               type="button"
               className="toggle-password"
               onClick={togglePasswordVisibility}
-            >
+              >
               {showPassword ? '🙉' : '🙈'}
             </button>
           </div>
@@ -89,5 +95,7 @@ export default function Login() {
         </div>
       </form>
     </div>
+      <Footer />
+              </>
   )
 }

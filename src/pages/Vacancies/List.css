@@ -10,7 +10,7 @@
 
 /* Cada vaga como um cartão */
 .vacancy-card {
-  background: #fff;
+  background: #ffffff6e;
   border: 1px solid #e2e8f0;
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.5);
@@ -70,4 +70,24 @@
 
 .new-vacancy-btn:hover {
   background: #4bd64f;
+}
+
+.vacancy-header-centered {
+  position: relative;
+  max-width: 800px;
+  margin: 2rem auto 1.5rem;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.vacancy-header-centered h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.vacancy-header-centered .new-vacancy-btn {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
 }

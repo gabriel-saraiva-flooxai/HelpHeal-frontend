@@ -1,0 +1,65 @@
+.home-hero {
+  background: url("../imgs/hero-bg-ex.png") center/cover no-repeat scroll;
+  height: 150vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.home-hero-content {
+  margin-top: 5rem;
+  text-align: center;
+  color: white;
+  max-width: 600px;
+}
+.home-hero-content h1 {
+  margin-bottom: 0;
+  font-size: 4rem;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+  -webkit-text-fill-color: #2ec700;
+}
+.home-hero-content h2 {
+  font-size: 4rem;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+  -webkit-text-fill-color: #2ec700;
+}
+.home-hero-content form {
+  margin: 2rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.home-hero-content input {
+  max-width: 200px;
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: none;
+  width: 60%;
+}
+.home-hero-content button {
+  padding: 0.75rem 1rem;
+  border: none;
+  background: #2d3748;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.home-hero-content button:hover {
+  background: #39475f;
+}
+.home-hero-link {
+  display: inline-block;
+  margin-top: 1rem;
+
+  padding: 0.75rem 1rem;
+  border: none;
+  background: #2c632e;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.home-hero-link:hover {
+  background: #79e283;
+  color: #2c632e;
+}

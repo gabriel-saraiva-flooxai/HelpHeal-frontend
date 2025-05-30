@@ -1,0 +1,21 @@
+.home-presentation {
+  max-width: 800px;
+  margin: 5rem auto 2rem;
+  padding: 0 1rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.home-presentation h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #79e283;
+}
+
+.home-presentation p {
+  line-height: 1.6;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
